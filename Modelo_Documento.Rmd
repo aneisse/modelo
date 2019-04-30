@@ -1,0 +1,162 @@
+---
+title: "Modelo"
+lang: pt-BR
+author: "Anderson Neisse"
+date: "26/04/2019"
+abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+output:
+  html_document:
+    number_sections: true
+    toc: true 
+    toc_float: true
+    code_folding: hide
+  pdf_document:
+    toc: true
+    number_sections: true
+    toc_depth: 1
+bibliography: referencias.bib
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\pagebreak
+
+# Introdução{#primeira}
+
+*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua*. 
+
+**Ut enim ad minim veniam**, 
+
+**_quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat_**.
+~~Duis aute irure~~ 
+--- 
+dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+- Item 
+  - Subitem
+- Outro item
+
+1. Item
+  - Subitem
+2. Item 2
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute ${n \choose k} p^{k} (1-p)^{n-k}$ irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+$${n \choose k} p^{k} (1-p)^{n-k}$$
+
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\newpage
+
+# Metodologia
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+```{r grafico, message=FALSE, warning=FALSE, fig.align='center'}
+# Criando um gráfico
+vetor <- c(1:10)
+plot(vetor)
+
+print("Texto")
+```
+
+
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Regressão Linear
+
+&ensp;&ensp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat [@casella]. 
+
+```{r, warning=FALSE, message=FALSE}
+library(tidyverse)
+tibble(Coluna1 = c(11, 12), Coluna2 = c(21, 22)) %>% 
+  kableExtra::kable(align = c("r", "c"), 
+                    caption = "Exemplo de tabela")
+```
+
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+
+# Análise
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+```{r}
+tibble(Coluna1 = c(11, 12), Coluna2 = c(21, 22)) %>% 
+  kableExtra::kable(align = c("r", "c"), 
+                    caption = "Exemplo de tabela")
+```
+
+
+# Resultados
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. [nesta seção (Introdução)](#primeira)
+
+# Título da seção do Tabset {.tabset .tabset-pills}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Primeira visualização
+Comentário
+```{r}
+library(leaflet)
+leaflet(quakes) %>% addTiles() %>% 
+  addMarkers(clusterOptions = markerClusterOptions())
+```
+
+Comentário posterior
+
+## Segunda visualização
+
+Comentário
+```{r}
+library(DT)
+datatable(iris, options = list(pageLength = 4))
+```
+
+Comentário posterior
+
+## Terceira visualização
+
+```{r}
+library(ggplot2)
+g <- ggplot(iris, aes(x = Petal.Length, y = Petal.Width)) +
+  geom_point(aes(color = Species)) + 
+  labs(title = "Tamanho da pétala por espécie de flor", 
+       x = "Comprimento", y = "Largura", color = "Espécie") + 
+  theme_bw()
+
+library(plotly)
+ggplotly(g)
+```
+
+# Aplicativo Shiny
+
+Còdigo do shiny
+
+```{r}
+# Código abaixo isnerido em chunks
+selectInput(
+  'breaks', label = 'Number of bins:',
+  choices = c(10, 20, 35, 50), selected = 20)
+renderPlot({
+  par(mar = c(4, 4, .1, .5))
+  hist(
+    faithful$eruptions, as.numeric(input$breaks),
+    col = 'gray', border = 'white',
+    xlab = 'Duration (minutes)', main = '')
+})
+```
+
+
+# Referências
+
+<style>
+body{
+text-align: justify
+}
+</style>
